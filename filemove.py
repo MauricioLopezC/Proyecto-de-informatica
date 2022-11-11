@@ -1,6 +1,7 @@
 import os #para manipular archivos y directorios
 import datetime #para obtener datos de la fecha
-datos_f = str(datetime.datetime.now())
+datos_f = str(datetime.datetime.now()).split(".")
+datos_f = datos_f[0]
 
 def file_move ():
     carpeta_actual = os.getcwd() + "/"#obener el directio de trabajo actual
@@ -12,6 +13,3 @@ def file_move ():
         nuevo_nombre = nombre[0] + datos_f + extension
         if extension == ".xlsx":
             os.rename(carpeta_actual + nombre_archivo, carpeta_historial + nuevo_nombre)
-
-
-file_move()
